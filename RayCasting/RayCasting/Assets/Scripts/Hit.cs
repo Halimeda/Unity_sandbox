@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hit : MonoBehaviour
 {
+
+    public float rayRange = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +16,12 @@ public class Hit : MonoBehaviour
     void Update()
     {
         Color clr = Color.green;
-        if (Physics.Raycast(transform.position, transform.forward))
+        if (Physics.Raycast(transform.position, transform.forward, rayRange))
         {
             Debug.Log("Hit Something !");
             clr = Color.red;
         }
-        Debug.DrawRay(transform.position, transform.forward * 10, clr);
+        Debug.DrawRay(transform.position, transform.forward * rayRange, clr);
 
         //Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
         //if (Physics.Raycast(transform.position, transform.forward)){
